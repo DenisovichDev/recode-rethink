@@ -25,36 +25,36 @@ function draw() {
     emerge(
         w / 2,
         0,
-        0 + random(PI * 0.02, PI * 0.1),
-        PI - random(PI * 0.02, PI * 0.1),
+        0 + random(PI * 0.01, PI * 0.08),
+        PI - random(PI * 0.01, PI * 0.08),
         0
     )
     emerge(
         w,
         h / 2,
-        PI / 2 + random(PI * 0.02, PI * 0.1),
-        (PI * 3) / 2 - random(PI * 0.02, PI * 0.1),
+        PI / 2 + random(PI * 0.01, PI * 0.08),
+        (PI * 3) / 2 - random(PI * 0.01, PI * 0.08),
         0
     )
     emerge(
         w / 2,
         h,
-        PI + random(PI * 0.02, PI * 0.1),
-        TAU - random(PI * 0.02, PI * 0.1),
+        PI + random(PI * 0.01, PI * 0.08),
+        TAU - random(PI * 0.01, PI * 0.08),
         0
     )
     emerge(
         0,
         h / 2,
-        -PI / 2 + random(PI * 0.02, PI * 0.1),
-        PI / 2 - random(PI * 0.02, PI * 0.1),
+        -PI / 2 + random(PI * 0.01, PI * 0.08),
+        PI / 2 - random(PI * 0.01, PI * 0.08),
         0
     )
     // Corner
-    emerge(0, 0, 0 + random(PI / 30, PI / 24), PI / 2, 0)
-    emerge(w, 0, PI / 2 + random(PI / 30, PI / 24), PI, 0)
-    emerge(w, h, PI + random(PI / 30, PI / 24), (3 * PI) / 2, 0)
-    emerge(0, h, (3 * PI) / 2 + random(PI / 30, PI / 24), TAU, 0)
+    emerge(0, 0, 0 + random(PI * 0.03, PI * 0.04), PI / 2, 0)
+    emerge(w, 0, PI / 2 + random(PI * 0.03, PI * 0.04), PI, 0)
+    emerge(w, h, PI + random(PI * 0.03, PI * 0.04), (3 * PI) / 2, 0)
+    emerge(0, h, (3 * PI) / 2 + random(PI * 0.03, PI * 0.04), TAU, 0)
 }
 
 function drawGrid() {
@@ -88,7 +88,8 @@ function emerge(x, y, lowerBound, upperBound, randomOff) {
             cx = x + a * cos(theta)
             cy = y + a * sin(theta)
         } while (cx < 0 || cx > w || cy < 0 || cy > h)
+        cx = u * floor(cx / u)
+        cy = u * floor(cy / u)
         line(x, y, cx, cy)
-        // circle(cx, cy, 40)
     }
 }
