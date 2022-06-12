@@ -1,3 +1,10 @@
+/*
+Recode of Sol LeWitt's "Lines from Corners, Sides & The Center, To Points on a Grid (Black)", 1977
+(https://www.moma.org/collection/works/69276)
+
+Author: Denisovich (https://twitter.com/DenisovichPy)
+*/
+
 const grid = 64
 let u
 
@@ -10,7 +17,7 @@ function setup() {
 }
 
 function draw() {
-    background(255)
+    background("#F1EEE7")
     translate(w / 2, h / 2)
     scale(0.99)
     translate(-w / 2, -h / 2)
@@ -27,34 +34,34 @@ function draw() {
         0,
         0 + random(PI * 0.01, PI * 0.08),
         PI - random(PI * 0.01, PI * 0.08),
-        0
+        0.2
     )
     emerge(
         w,
         h / 2,
         PI / 2 + random(PI * 0.01, PI * 0.08),
         (PI * 3) / 2 - random(PI * 0.01, PI * 0.08),
-        0
+        0.2
     )
     emerge(
         w / 2,
         h,
         PI + random(PI * 0.01, PI * 0.08),
         TAU - random(PI * 0.01, PI * 0.08),
-        0
+        0.2
     )
     emerge(
         0,
         h / 2,
         -PI / 2 + random(PI * 0.01, PI * 0.08),
         PI / 2 - random(PI * 0.01, PI * 0.08),
-        0
+        0.2
     )
     // Corner
-    emerge(0, 0, 0 + random(PI * 0.03, PI * 0.04), PI / 2, 0)
-    emerge(w, 0, PI / 2 + random(PI * 0.03, PI * 0.04), PI, 0)
-    emerge(w, h, PI + random(PI * 0.03, PI * 0.04), (3 * PI) / 2, 0)
-    emerge(0, h, (3 * PI) / 2 + random(PI * 0.03, PI * 0.04), TAU, 0)
+    emerge(0, 0, 0 + random(PI * 0.03, PI * 0.04), PI / 2, 0.2)
+    emerge(w, 0, PI / 2 + random(PI * 0.03, PI * 0.04), PI, 0.2)
+    emerge(w, h, PI + random(PI * 0.03, PI * 0.04), (3 * PI) / 2, 0.2)
+    emerge(0, h, (3 * PI) / 2 + random(PI * 0.03, PI * 0.04), TAU, 0.2)
 }
 
 function drawGrid() {
@@ -80,8 +87,9 @@ function emerge(x, y, lowerBound, upperBound, randomOff) {
         dist(x, y, w, h)
     )
     for (let i = 0; i < 16; i++) {
-        let theta =
-            lowerBound + i * phi + random([-1, 1]) * random(phi * randomOff)
+        let theta = lowerBound + i * phi
+        if (!(i == 0 || i == 15))
+            theta += random([-1, 1]) * random(phi * randomOff)
         let cx, cy
         do {
             let a = random(l * 0.2, maxLen)
