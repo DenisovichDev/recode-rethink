@@ -1,0 +1,16 @@
+{
+    "projects": [
+        {
+            "name": "Ascension",
+            "artist": "Vera Molnar",
+            "year": 1972,
+            "thumbnail": "./assets/ascension/ascension_rc.png"
+        },
+        {
+            "name": "Abyss",
+            "artist": "Zarina Hashmi",
+            "year": 1980,
+            "thumbnail": "./assets/hashmi/abyss_rt.png"
+        }
+    ]
+}
