@@ -1,3 +1,5 @@
+// Author: Denisovich
+
 const projectElement = document.querySelector(".projects")
 
 fetch("./assets.json")
